@@ -5,6 +5,7 @@ import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap'
 const Cabecalho = () => {
   return (
     <>
+
       <Navbar bg="dark" variant="dark">
         <Container>
           <Navbar.Brand href="/filmes">Início</Navbar.Brand>

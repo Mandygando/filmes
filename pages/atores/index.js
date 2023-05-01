@@ -15,7 +15,7 @@ const index = (props) => {
                             <Card.Img variant="top" src={"https://image.tmdb.org/t/p/w500" + item.profile_path} />
                             <Card.Body>
                                 <Card.Title>{item.name}</Card.Title>
-                                <Link className='btn btn-danger' href={'/atores/' + item.id}>Detalhes</Link>
+                                <Link className='btn btn-warning text-danger' href={'/atores/' + item.id}>Detalhes</Link>
                             </Card.Body>
                         </Card>
                     </Col>

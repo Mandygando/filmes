@@ -17,7 +17,7 @@ const index = (props) => {
                 <Card.Title>{item.title}</Card.Title>
                 <p>Lançamento: {item.release_date}</p>
                 <p>Nota: {item.vote_average}</p>
-                <Link className='btn btn-danger' href={'/filmes/' + item.id}>Detalhes</Link>
+                <Link className='btn btn-warning text-danger' href={'/filmes/' + item.id}>Detalhes</Link>
               </Card.Body>
             </Card>
           </Col>
