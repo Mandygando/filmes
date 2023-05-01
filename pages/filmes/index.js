@@ -1,21 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import Pagina from '../../components/Pagina';
-import apiDeputados from '../../services/apiDeputados';
-import axios from 'axios';
-import apiFilmes from '@/services/apiFilmes';
-import { Card, Col, Row } from 'react-bootstrap';
-import { Button } from 'react-bootstrap';
-import Link from 'next/link';
+import Pagina from '@/components/Pagina'
+import apiFilmes from '@/services/apiFilmes'
+import Link from 'next/link'
+import React, { useEffect, useState } from 'react'
+import { Button, Card, Col, Row } from 'react-bootstrap'
 
 const index = (props) => {
-
-
-
   return (
-    <Pagina titulo="Filmes">
+    <Pagina titulo="Filmes Populares">
 
       <Row md={4}>
-
         {props.filmes.map(item => (
           <Col>
             <Card>
@@ -30,16 +23,16 @@ const index = (props) => {
           </Col>
         ))}
       </Row>
+
     </Pagina>
-  );
+  )
 }
 
-export default index;
-
+export default index
 
 export async function getServerSideProps(context) {
 
-  const resultado = await apiFilmes.get('/movie/popular')
+  const resultado = await apiFilmes.get('/movie/popular?language=pt-BR')
   const filmes = resultado.data.results
 
   return {

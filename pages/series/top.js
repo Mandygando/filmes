@@ -4,9 +4,9 @@ import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import { Button, Card, Col, Row } from 'react-bootstrap'
 
-const cartaz = (props) => {
+const top = (props) => {
     return (
-        <Pagina titulo="Filmes em Cartaz">
+        <Pagina titulo="Séries Top Rated">
 
             <Row md={4}>
                 {props.filmes.map(item => (
@@ -17,7 +17,7 @@ const cartaz = (props) => {
                                 <Card.Title>{item.title}</Card.Title>
                                 <p>Lançamento: {item.release_date}</p>
                                 <p>Nota: {item.vote_average}</p>
-                                <Link className='btn btn-danger' href={'/filmes/' + item.id}>Detalhes</Link>
+                                <Link className='btn btn-danger' href={'/series/' + item.id}>Detalhes</Link>
                             </Card.Body>
                         </Card>
                     </Col>
@@ -28,11 +28,11 @@ const cartaz = (props) => {
     )
 }
 
-export default cartaz
+export default top
 
 export async function getServerSideProps(context) {
 
-    const resultado = await apiFilmes.get('/movie/now_playing?language=pt-BR')
+    const resultado = await apiFilmes.get('/tv/top_rated?language=pt-BR')
     const filmes = resultado.data.results
 
     return {

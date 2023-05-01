@@ -1,32 +1,33 @@
+import Link from 'next/link'
 import React from 'react'
 import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap'
 
 const Cabecalho = () => {
-    return (
-        <>
-            <Navbar bg="dark" variant="dark">
-                <Container>
-                    <Navbar.Brand href="#home">Navbar</Navbar.Brand>
-                    <Nav className="me-auto">
-                        <NavDropdown title="Filmes" id="basic-nav-dropdown">
-                            <NavDropdown.Item href="/filmes">Populares</NavDropdown.Item>
-                            <NavDropdown.Item href="/filmes/lancamentos">Lançamentos</NavDropdown.Item>
-                            <NavDropdown.Item href="/filmes/cartaz">Em cartaz</NavDropdown.Item>
-                            <NavDropdown.Item href="/filmes/top">Top Rated</NavDropdown.Item>
-                        </NavDropdown>
-                        <NavDropdown title="Séries" id="basic-nav-dropdown">
-                            <NavDropdown.Item href="/series">Populares</NavDropdown.Item>
-                            <NavDropdown.Item href="/series/ar">No Ar</NavDropdown.Item>
-                            <NavDropdown.Item href="/series/estreias">Estreias</NavDropdown.Item>
-                            <NavDropdown.Item href="/series/top">Top Rated</NavDropdown.Item>
-                        </NavDropdown>
-                        <Nav.Link href="/atores">Atores</Nav.Link>
-                        <Nav.Link href="/generos">Gêneros</Nav.Link>
-                    </Nav>
-                </Container>
-            </Navbar>
-        </>
-    )
+  return (
+    <>
+      <Navbar bg="dark" variant="dark">
+        <Container>
+          <Navbar.Brand href="/filmes">Início</Navbar.Brand>
+          <Nav className="me-auto">
+            <NavDropdown title="Filmes" id="basic-nav-dropdown">
+              <Link className='dropdown-item' href="/filmes">Populares</Link>
+              <Link className='dropdown-item' href="/filmes/lancamentos">Lançamentos</Link>
+              <Link className='dropdown-item' href="/filmes/cartaz">Em Cartaz</Link>
+              <Link className='dropdown-item' href="/filmes/top">Top Rated</Link>
+            </NavDropdown>
+            <NavDropdown title="Séries" id="basic-nav-dropdown">
+              <Link className='dropdown-item' href="/series">Populares</Link>
+              <Link className='dropdown-item' href="/series/cartaz">No ar</Link>
+              <Link className='dropdown-item' href="/series/lancamentos">Estreiantes</Link>
+              <Link className='dropdown-item' href="/series/top">Top Rated</Link>
+            </NavDropdown>
+            <Link className='nav-link' href="/atores">Atores</Link>
+            <Link className='nav-link' href="/generos">Gêneros</Link>
+          </Nav>
+        </Container>
+      </Navbar>
+    </>
+  )
 }
 
 export default Cabecalho

@@ -4,21 +4,20 @@ import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import { Button, Card, Col, Row } from 'react-bootstrap'
 
-const index = ({filmes}) => {
-
+const top = (props) => {
     return (
         <Pagina titulo="Filmes Top Rated">
 
             <Row md={4}>
-                {filmes.map(item => (
-                    <Col key={item.id}>
-                        <Card className="mb-3">
-                            <Card.Img variant="top" src={'https://image.tmdb.org/t/p/w500/' + item.backdrop_path} />
+                {props.filmes.map(item => (
+                    <Col>
+                        <Card>
+                            <Card.Img variant="top" src={"https://image.tmdb.org/t/p/w500" + item.backdrop_path} />
                             <Card.Body>
                                 <Card.Title>{item.title}</Card.Title>
                                 <p>Lançamento: {item.release_date}</p>
                                 <p>Nota: {item.vote_average}</p>
-                                <Link href={'/filmes/' + item.id} className='btn btn-danger'>Detalhes</Link>
+                                <Link className='btn btn-danger' href={'/filmes/' + item.id}>Detalhes</Link>
                             </Card.Body>
                         </Card>
                     </Col>
@@ -29,7 +28,7 @@ const index = ({filmes}) => {
     )
 }
 
-export default index
+export default top
 
 export async function getServerSideProps(context) {
 
@@ -37,6 +36,6 @@ export async function getServerSideProps(context) {
     const filmes = resultado.data.results
 
     return {
-        props: {filmes},
+        props: { filmes },
     }
 }
